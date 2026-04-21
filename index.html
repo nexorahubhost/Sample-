@@ -3,233 +3,716 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chef King’s House of Food | Nigerian Premium Catering & Delicious Meals</title>
+    <title>Chef King's House of Food | Nigerian Premium Catering & Delicious Meals</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- NAV -->
+<!-- NAVIGATION -->
 <nav id="navbar">
     <div class="nav-container">
-        <a href="#" class="logo">Chef King’s House of Food</a>
+        <a href="#" class="logo">
+            <span class="logo-icon">👑</span>
+            <span class="logo-text">Chef King's House of Food</span>
+        </a>
         
         <button type="button" class="mobile-menu-toggle" aria-label="Toggle navigation menu" onclick="toggleMobileMenu()">
-            ☰
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
         </button>
         
         <ul class="nav-links" id="navLinks">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#menu">Menu</a></li>
-            <li><a href="#packages">Packages</a></li>
-            <li><a href="#contact">Book Now</a></li>
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#menu" class="nav-link">Menu</a></li>
+            <li><a href="#packages" class="nav-link">Packages</a></li>
+            <li><a href="#contact" class="nav-link">Book Now</a></li>
         </ul>
         
-        <button type="button" class="cart-btn" aria-label="Shopping cart" onclick="toggleCart()">
-            🛒 <span id="cartCount">0</span>
+        <button type="button" class="custom-package-btn" aria-label="Open custom package" onclick="toggleCustomPackage()">
+            <span class="package-icon">📦</span>
+            <span class="package-text">My Package</span>
+            <span id="packageCount" class="package-badge">0</span>
         </button>
     </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-particles" id="particles"></div>
     <div class="hero-content">
-        <h1>Crafted Meals. Unforgettable Taste.</h1>
-        <p>From intimate gatherings to large events, Chef King’s House of Food delivers rich flavors, quality ingredients, and unforgettable dining experiences.</p>
-        <a href="#menu" class="cta-button">Order Now</a>
+        <div class="hero-badge">✨ Premium Nigerian Catering</div>
+        <h1 class="hero-title">
+            <span class="title-line">Crafted Meals.</span>
+            <span class="title-line accent">Unforgettable Taste.</span>
+        </h1>
+        <p class="hero-subtitle">From intimate gatherings to grand celebrations, we deliver rich flavors, quality ingredients, and authentic Nigerian dining experiences — straight to your doorstep.</p>
+        <div class="hero-cta-group">
+            <a href="#menu" class="cta-button primary">Build Your Package</a>
+            <a href="#packages" class="cta-button secondary">View Fixed Packages</a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Events Catered</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Menu Items</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Online Service</span>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-indicator">
+        <div class="scroll-mouse">
+            <div class="scroll-wheel"></div>
+        </div>
+        <span>Scroll to explore</span>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about-section">
+    <div class="about-container">
+        <div class="about-visual">
+            <div class="about-image-wrapper">
+                <div class="about-image about-img-1"></div>
+                <div class="about-image about-img-2"></div>
+                <div class="about-floating-card">
+                    <span class="floating-icon">🚀</span>
+                    <span class="floating-text">100% Online</span>
+                </div>
+            </div>
+        </div>
+        <div class="about-content">
+            <div class="section-tag">About Us</div>
+            <h2 class="section-title">Nigerian Flavors,<br><span class="highlight">Delivered to You</span></h2>
+            <p class="about-text">Chef King's House of Food brings the rich, authentic flavors of Nigerian cuisine straight to your doorstep. Born from a passion for quality cooking and the joy of sharing meals, we operate as a fully <strong>online delivery service</strong> — no physical dine-in, just premium food prepared fresh and delivered to you.</p>
+            <p class="about-text">Whether you're craving smoky party jollof for lunch, planning a family dinner with pounded yam and egusi, or organizing a grand celebration that deserves the full <em>owambe</em> experience, our menu is crafted to satisfy every appetite. Simply browse, place your order, and let us handle the rest.</p>
+            <p class="about-text">For events, our catering packages are built to impress — from intimate gatherings to large celebrations — with the same attention to flavor, presentation, and timely service that defines everything we do.</p>
+            <div class="about-features">
+                <div class="about-feature">
+                    <div class="feature-icon">🍲</div>
+                    <span>Fresh Daily</span>
+                </div>
+                <div class="about-feature">
+                    <div class="feature-icon">⚡</div>
+                    <span>Fast Delivery</span>
+                </div>
+                <div class="about-feature">
+                    <div class="feature-icon">🎯</div>
+                    <span>Custom Orders</span>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
 <!-- MENU -->
-<section id="menu">
-    <h2 class="section-title">Our Menu</h2>
+<section id="menu" class="menu-section">
+    <div class="section-header">
+        <div class="section-tag">Our Menu</div>
+        <h2 class="section-title">Build Your <span class="highlight">Perfect Meal</span></h2>
+        <p class="section-subtitle">Browse our categories and create your custom package. No fixed prices — we quote based on your specific needs and portion sizes.</p>
+    </div>
 
     <div class="menu-filters">
-        <button type="button" onclick="filterMenu('all', this)" class="cta-button active">All</button>
-        <button type="button" onclick="filterMenu('appetizer', this)" class="cta-button">Small Chops</button>
-        <button type="button" onclick="filterMenu('main', this)" class="cta-button">Main</button>
-        <button type="button" onclick="filterMenu('dessert', this)" class="cta-button">Dessert</button>
-        <button type="button" onclick="filterMenu('beverage', this)" class="cta-button">Drinks</button>
+        <button type="button" onclick="filterMenu('all', this)" class="filter-btn active">All</button>
+        <button type="button" onclick="filterMenu('rice', this)" class="filter-btn">Rice Dishes</button>
+        <button type="button" onclick="filterMenu('soup', this)" class="filter-btn">Soups</button>
+        <button type="button" onclick="filterMenu('swallow', this)" class="filter-btn">Swallow</button>
+        <button type="button" onclick="filterMenu('protein', this)" class="filter-btn">Proteins</button>
+        <button type="button" onclick="filterMenu('appetizer', this)" class="filter-btn">Small Chops</button>
+        <button type="button" onclick="filterMenu('beverage', this)" class="filter-btn">Drinks</button>
     </div>
 
     <div class="menu-grid">
 
-        <!-- ITEM -->
-        <div class="menu-item" data-category="main">
-            <h3>Jollof Rice & Chicken</h3>
-            <p>Smoky party jollof served with grilled chicken</p>
-            <span class="price">₦3,500</span>
-            <button type="button" class="cta-button" onclick="addToCart('Jollof Rice & Chicken', 3500)">Add to Cart</button>
+        <!-- RICE DISHES -->
+        <div class="menu-item" data-category="rice">
+            <div class="menu-item-image">
+                <div class="menu-item-badge">Popular</div>
+            </div>
+            <div class="menu-item-content">
+                <h3>Jollof Rice</h3>
+                <p>Smoky party-style jollof rice cooked to perfection with rich tomato base and aromatic spices</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Jollof Rice')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
         </div>
 
-        <div class="menu-item" data-category="main">
-            <h3>Fried Rice & Turkey</h3>
-            <p>Classic fried rice with seasoned turkey</p>
-            <span class="price">₦4,000</span>
-            <button type="button" class="cta-button" onclick="addToCart('Fried Rice & Turkey', 4000)">Add to Cart</button>
+        <div class="menu-item" data-category="rice">
+            <div class="menu-item-image rice-fried"></div>
+            <div class="menu-item-content">
+                <h3>Fried Rice</h3>
+                <p>Classic Nigerian fried rice with mixed vegetables, liver, and signature seasoning</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Fried Rice')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="rice">
+            <div class="menu-item-image rice-chinese"></div>
+            <div class="menu-item-content">
+                <h3>Chinese Fried Rice</h3>
+                <p>Oriental-style fried rice with scrambled eggs, spring onions, and soy sauce blend</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Chinese Fried Rice')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="rice">
+            <div class="menu-item-image rice-white"></div>
+            <div class="menu-item-content">
+                <h3>White Rice</h3>
+                <p>Fluffy steamed white rice — a perfect canvas for your favorite soups and stews</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('White Rice')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="rice">
+            <div class="menu-item-image rice-coconut"></div>
+            <div class="menu-item-content">
+                <h3>Coconut Rice</h3>
+                <p>Aromatic rice cooked in rich coconut milk with peppers and spices</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Coconut Rice')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <!-- SOUPS -->
+        <div class="menu-item" data-category="soup">
+            <div class="menu-item-image soup-egusi"></div>
+            <div class="menu-item-content">
+                <h3>Egusi Soup</h3>
+                <p>Rich, thick melon seed soup with assorted meat, fish, and leafy vegetables</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Egusi Soup')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="soup">
+            <div class="menu-item-image soup-efo"></div>
+            <div class="menu-item-content">
+                <h3>Efo Riro</h3>
+                <p>Flavorful Yoruba vegetable stew with palm oil, locust beans, and assorted meat</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Efo Riro')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="soup">
+            <div class="menu-item-image soup-ogbono"></div>
+            <div class="menu-item-content">
+                <h3>Ogbono Soup</h3>
+                <p>Draw soup made from wild mango seeds with rich, slimy texture and bold flavors</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Ogbono Soup')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="soup">
+            <div class="menu-item-image soup-afang"></div>
+            <div class="menu-item-content">
+                <h3>Afang Soup</h3>
+                <p>Delicious Efik vegetable soup with waterleaf, afang leaves, and seafood</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Afang Soup')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="soup">
+            <div class="menu-item-image soup-edikaikong"></div>
+            <div class="menu-item-content">
+                <h3>Edikaikong</h3>
+                <p>Rich Calabar soup with pumpkin leaves, waterleaf, and generous protein portions</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Edikaikong')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="soup">
+            <div class="menu-item-image soup-banga"></div>
+            <div class="menu-item-content">
+                <h3>Banga Soup</h3>
+                <p>Delta-style palm nut soup with native spices and fresh fish or meat</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Banga Soup')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <!-- SWALLOW -->
+        <div class="menu-item" data-category="swallow">
+            <div class="menu-item-image swallow-pounded"></div>
+            <div class="menu-item-content">
+                <h3>Pounded Yam</h3>
+                <p>Smooth, stretchy yam pounded to perfection — the classic pairing for any soup</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Pounded Yam')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="swallow">
+            <div class="menu-item-image swallow-amala"></div>
+            <div class="menu-item-content">
+                <h3>Amala</h3>
+                <p>Smooth, dark yam flour swallow — a Yoruba favorite for ewedu and gbegiri</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Amala')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="swallow">
+            <div class="menu-item-image swallow-eba"></div>
+            <div class="menu-item-content">
+                <h3>Eba (Garri)</h3>
+                <p>Classic cassava granules prepared firm or soft to your preference</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Eba (Garri)')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="swallow">
+            <div class="menu-item-image swallow-semo"></div>
+            <div class="menu-item-content">
+                <h3>Semo</h3>
+                <p>Smooth semolina swallow with a light, fluffy texture</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Semo')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="swallow">
+            <div class="menu-item-image swallow-fufu"></div>
+            <div class="menu-item-content">
+                <h3>Fufu</h3>
+                <p>Traditional fermented cassava swallow with a unique tangy flavor</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Fufu')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+                <!-- PROTEINS -->
+        <div class="menu-item" data-category="protein">
+            <div class="menu-item-image protein-chicken"></div>
+            <div class="menu-item-content">
+                <h3>Grilled Chicken</h3>
+                <p>Juicy, well-seasoned chicken grilled with Nigerian spices and herbs</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Grilled Chicken')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="protein">
+            <div class="menu-item-image protein-turkey"></div>
+            <div class="menu-item-content">
+                <h3>Turkey</h3>
+                <p>Tender turkey cuts seasoned and cooked in traditional style</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Turkey')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="protein">
+            <div class="menu-item-image protein-beef"></div>
+            <div class="menu-item-content">
+                <h3>Beef</h3>
+                <p>Succulent beef chunks slow-cooked in rich pepper sauce</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Beef')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="protein">
+            <div class="menu-item-image protein-goat"></div>
+            <div class="menu-item-content">
+                <h3>Goat Meat (Asun)</h3>
+                <p>Spicy grilled goat meat cuts — a party favorite</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Goat Meat (Asun)')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="protein">
+            <div class="menu-item-image protein-assorted"></div>
+            <div class="menu-item-content">
+                <h3>Assorted Meat</h3>
+                <p>Mix of beef, shaki, roundabout, and other offals in spicy sauce</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Assorted Meat')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="protein">
+            <div class="menu-item-image protein-fish"></div>
+            <div class="menu-item-content">
+                <h3>Stock Fish & Dry Fish</h3>
+                <p>Traditional dried fish varieties for authentic soup flavor</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Stock Fish & Dry Fish')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="protein">
+            <div class="menu-item-image protein-cowleg"></div>
+            <div class="menu-item-content">
+                <h3>Cow Leg (Bokoto)</h3>
+                <p>Tender, gelatinous cow leg slow-cooked in pepper sauce</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Cow Leg (Bokoto)')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <!-- SMALL CHOPS -->
+        <div class="menu-item" data-category="appetizer">
+            <div class="menu-item-image chop-combo"></div>
+            <div class="menu-item-content">
+                <h3>Small Chops Combo</h3>
+                <p>Puff puff, samosa, spring rolls & gizdodo — the perfect party starter</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Small Chops Combo')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
         </div>
 
         <div class="menu-item" data-category="appetizer">
-            <h3>Small Chops Combo</h3>
-            <p>Puff puff, samosa, spring rolls & gizdodo</p>
-            <span class="price">₦2,500</span>
-            <button type="button" class="cta-button" onclick="addToCart('Small Chops Combo', 2500)">Add to Cart</button>
+            <div class="menu-item-image chop-puff"></div>
+            <div class="menu-item-content">
+                <h3>Puff Puff</h3>
+                <p>Soft, fluffy Nigerian dough balls — sweet and irresistible</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Puff Puff')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
         </div>
 
-        <div class="menu-item" data-category="main">
-            <h3>Pounded Yam & Egusi</h3>
-            <p>Rich egusi soup with assorted meat</p>
-            <span class="price">₦4,500</span>
-            <button type="button" class="cta-button" onclick="addToCart('Pounded Yam & Egusi', 4500)">Add to Cart</button>
+        <div class="menu-item" data-category="appetizer">
+            <div class="menu-item-image chop-samosa"></div>
+            <div class="menu-item-content">
+                <h3>Samosa</h3>
+                <p>Crispy pastry pockets filled with spiced meat or vegetable filling</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Samosa')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
         </div>
 
-        <div class="menu-item" data-category="dessert">
-            <h3>Coconut Candy & Cake</h3>
-            <p>Sweet treats to finish your meal</p>
-            <span class="price">₦1,500</span>
-            <button type="button" class="cta-button" onclick="addToCart('Coconut Candy & Cake', 1500)">Add to Cart</button>
+        <div class="menu-item" data-category="appetizer">
+            <div class="menu-item-image chop-spring"></div>
+            <div class="menu-item-content">
+                <h3>Spring Rolls</h3>
+                <p>Crispy vegetable-filled rolls with sweet chili dipping sauce</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Spring Rolls')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="appetizer">
+            <div class="menu-item-image chop-gizdodo"></div>
+            <div class="menu-item-content">
+                <h3>Gizdodo</h3>
+                <p>Spicy gizzard and plantain combo — a true Nigerian delicacy</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Gizdodo')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <!-- DRINKS -->
+        <div class="menu-item" data-category="beverage">
+            <div class="menu-item-image drink-zobo"></div>
+            <div class="menu-item-content">
+                <h3>Zobo Drink</h3>
+                <p>Freshly brewed hibiscus drink with natural spices and flavors</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Zobo Drink')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
         </div>
 
         <div class="menu-item" data-category="beverage">
-            <h3>Zobo Drink</h3>
-            <p>Freshly made zobo with natural flavors</p>
-            <span class="price">₦800</span>
-            <button type="button" class="cta-button" onclick="addToCart('Zobo Drink', 800)">Add to Cart</button>
+            <div class="menu-item-image drink-chapman"></div>
+            <div class="menu-item-content">
+                <h3>Chapman</h3>
+                <p>Refreshing Nigerian mocktail with a unique fruity blend</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Chapman')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
         </div>
 
         <div class="menu-item" data-category="beverage">
-            <h3>Chapman</h3>
-            <p>Refreshing Nigerian cocktail</p>
-            <span class="price">₦1,200</span>
-            <button type="button" class="cta-button" onclick="addToCart('Chapman', 1200)">Add to Cart</button>
+            <div class="menu-item-image drink-fresh"></div>
+            <div class="menu-item-content">
+                <h3>Fresh Juice</h3>
+                <p>Freshly squeezed fruit juices — orange, pineapple, watermelon</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Fresh Juice')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
+        </div>
+
+        <div class="menu-item" data-category="beverage">
+            <div class="menu-item-image drink-soft"></div>
+            <div class="menu-item-content">
+                <h3>Soft Drinks</h3>
+                <p>Assorted chilled soft drinks and mineral water</p>
+                <button type="button" class="add-package-btn" onclick="addToPackage('Soft Drinks')">
+                    <span>+</span> Add to Package
+                </button>
+            </div>
         </div>
 
     </div>
 </section>
 
 <!-- PACKAGES -->
-<section id="packages" class="packages">
-    <h2 class="section-title">Catering Packages</h2>
+<section id="packages" class="packages-section">
+    <div class="section-header">
+        <div class="section-tag">Catering Packages</div>
+        <h2 class="section-title">Choose Your <span class="highlight">Experience</span></h2>
+        <p class="section-subtitle">Fixed packages curated for every occasion. Select a package and we'll send the details straight to WhatsApp for pricing.</p>
+    </div>
 
     <div class="packages-grid">
 
         <div class="package-card">
+            <div class="package-icon-bg">🎉</div>
             <h3>Owambe Starter</h3>
-            <p class="package-price">₦12,000 <span>/ person</span></p>
+            <p class="package-desc">Perfect for small gatherings and intimate celebrations</p>
             <ul class="package-features">
-                <li>Rice Dishes</li>
-                <li>Chicken or Turkey</li>
-                <li>Small Chops</li>
-                <li>Drinks</li>
-                <li>Basic Setup</li>
+                <li><span class="feature-check">✓</span> Jollof Rice & Fried Rice</li>
+                <li><span class="feature-check">✓</span> Chicken or Turkey</li>
+                <li><span class="feature-check">✓</span> Small Chops Platter</li>
+                <li><span class="feature-check">✓</span> Zobo & Soft Drinks</li>
+                <li><span class="feature-check">✓</span> Basic Setup & Delivery</li>
             </ul>
-            <button type="button" onclick="selectPackage('Owambe Starter', 12000)" class="cta-button">Select</button>
+            <button type="button" onclick="selectFixedPackage('Owambe Starter')" class="package-select-btn">
+                Select Package
+                <span class="btn-arrow">→</span>
+            </button>
         </div>
 
         <div class="package-card featured">
-            <div class="popular-badge">POPULAR</div>
+            <div class="popular-badge">MOST POPULAR</div>
+            <div class="package-icon-bg">🎊</div>
             <h3>Party Standard</h3>
-            <p class="package-price">₦20,000 <span>/ person</span></p>
+            <p class="package-desc">Our crowd favorite for birthdays, naming ceremonies & more</p>
             <ul class="package-features">
-                <li>Jollof + Fried Rice</li>
-                <li>Chicken & Beef</li>
-                <li>Small Chops</li>
-                <li>2 Drinks Options</li>
-                <li>Service Staff</li>
+                <li><span class="feature-check">✓</span> Jollof + Fried + Coconut Rice</li>
+                <li><span class="feature-check">✓</span> Chicken, Beef & Turkey</li>
+                <li><span class="feature-check">✓</span> Full Small Chops Table</li>
+                <li><span class="feature-check">✓</span> Chapman, Zobo & Soft Drinks</li>
+                <li><span class="feature-check">✓</span> Service Staff Included</li>
             </ul>
-            <button type="button" onclick="selectPackage('Party Standard', 20000)" class="cta-button">Select</button>
+            <button type="button" onclick="selectFixedPackage('Party Standard')" class="package-select-btn">
+                Select Package
+                <span class="btn-arrow">→</span>
+            </button>
         </div>
 
         <div class="package-card">
+            <div class="package-icon-bg">👑</div>
             <h3>Premium Owambe</h3>
-            <p class="package-price">₦35,000 <span>/ person</span></p>
+            <p class="package-desc">The ultimate experience for weddings and grand events</p>
             <ul class="package-features">
-                <li>Multiple Dishes</li>
-                <li>Asun, Turkey & Assorted Meat</li>
-                <li>Full Small Chops Table</li>
-                <li>Chapman & Cocktails</li>
-                <li>Full Service</li>
+                <li><span class="feature-check">✓</span> Multiple Rice & Swallow Options</li>
+                <li><span class="feature-check">✓</span> Asun, Turkey, Goat & Assorted</li>
+                <li><span class="feature-check">✓</span> Deluxe Small Chops Station</li>
+                <li><span class="feature-check">✓</span> Chapman, Cocktails & More</li>
+                <li><span class="feature-check">✓</span> Full Service & VIP Setup</li>
             </ul>
-            <button type="button" onclick="selectPackage('Premium Owambe', 35000)" class="cta-button">Select</button>
+            <button type="button" onclick="selectFixedPackage('Premium Owambe')" class="package-select-btn">
+                Select Package
+                <span class="btn-arrow">→</span>
+            </button>
         </div>
 
     </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-    <h2 class="section-title">Book Your Event</h2>
+<section id="contact" class="contact-section">
+    <div class="contact-container">
+        <div class="contact-info">
+            <div class="section-tag">Get in Touch</div>
+            <h2 class="section-title">Book Your <span class="highlight">Event</span></h2>
+            <p class="contact-desc">Ready to make your event unforgettable? Fill out the form and we'll get back to you within 24 hours.</p>
+            
+            <div class="contact-details">
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div>
+                        <span class="contact-label">WhatsApp</span>
+                        <span class="contact-value">+234 705 021 6396</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <span class="contact-label">Email</span>
+                        <span class="contact-value">hello@chefkinghouseoffood.com</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🚚</div>
+                    <div>
+                        <span class="contact-label">Delivery</span>
+                        <span class="contact-value">Nationwide Delivery Available</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <form class="contact-form" onsubmit="handleBooking(event)">
-        <div class="form-group">
-            <label for="fullName">Full Name</label>
-            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required aria-required="true">
-        </div>
-        
-        <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required aria-required="true">
-        </div>
-        
-        <div class="form-group">
-            <label for="eventType">Type of Event</label>
-            <select id="eventType" name="eventType" required aria-required="true">
-                <option value="" disabled selected>Select event type</option>
-                <option value="Wedding">Wedding</option>
-                <option value="Birthday Party">Birthday Party</option>
-                <option value="Corporate Event">Corporate Event</option>
-                <option value="Naming Ceremony">Naming Ceremony</option>
-                <option value="Burial Ceremony">Burial Ceremony</option>
-                <option value="House Warming">House Warming</option>
-                <option value="Anniversary">Anniversary</option>
-                <option value="Graduation Party">Graduation Party</option>
-                <option value="Other">Other</option>
-            </select>
-        </div>
-        
-        <div class="form-group">
-            <label for="eventDate">Event Date</label>
-            <input type="date" id="eventDate" name="eventDate" required aria-required="true">
-        </div>
-        
-        <div class="form-group">
-            <label for="guests">Number of Guests</label>
-            <input type="number" id="guests" name="guests" placeholder="How many guests?" min="1" required aria-required="true">
-        </div>
-        
-        <button type="submit" class="submit-btn">Submit Booking</button>
-    </form>
+        <form class="contact-form" onsubmit="handleBooking(event)">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required aria-required="true">
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+234..." required aria-required="true">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="eventType">Type of Event</label>
+                    <select id="eventType" name="eventType" required aria-required="true">
+                        <option value="" disabled selected>Select event type</option>
+                        <option value="Wedding">Wedding</option>
+                        <option value="Birthday Party">Birthday Party</option>
+                        <option value="Corporate Event">Corporate Event</option>
+                        <option value="Naming Ceremony">Naming Ceremony</option>
+                        <option value="Burial Ceremony">Burial Ceremony</option>
+                        <option value="House Warming">House Warming</option>
+                        <option value="Anniversary">Anniversary</option>
+                        <option value="Graduation Party">Graduation Party</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="eventDate">Event Date</label>
+                    <input type="date" id="eventDate" name="eventDate" required aria-required="true">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="guests">Number of Guests</label>
+                <input type="number" id="guests" name="guests" placeholder="How many guests?" min="1" required aria-required="true">
+            </div>
+
+            <div class="form-group">
+                <label for="message">Additional Notes</label>
+                <textarea id="message" name="message" placeholder="Tell us more about your event..."></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">
+                <span>Send Booking Request</span>
+                <span class="btn-arrow">→</span>
+            </button>
+        </form>
+    </div>
 </section>
 
-<!-- CART SIDEBAR - FIXED STRUCTURE -->
-<div id="cartSidebar" class="cart-sidebar">
-    <div class="cart-header">
-        <h3>Your Order</h3>
-        <button type="button" class="cart-close-btn" onclick="closeCart()" aria-label="Close cart">
-            ✕
+<!-- CUSTOM PACKAGE SIDEBAR -->
+<div id="packageSidebar" class="package-sidebar">
+    <div class="package-sidebar-header">
+        <div class="package-sidebar-title">
+            <span class="package-sidebar-icon">📦</span>
+            <div>
+                <h3>My Custom Package</h3>
+                <span class="package-sidebar-subtitle">Build your perfect meal</span>
+            </div>
+        </div>
+        <button type="button" class="package-close-btn" onclick="closeCustomPackage()" aria-label="Close package">
+            <span></span><span></span>
         </button>
     </div>
 
-    <div id="cartItems" class="cart-items-container"></div>
-
-    <div class="cart-footer">
-        <div class="cart-total-row">
-            <span>Total:</span>
-            <span class="total-amount">₦<span id="cartTotal">0</span></span>
+    <div id="packageItems" class="package-items-container">
+        <div class="empty-package">
+            <div class="empty-package-icon">🍽️</div>
+            <p>Your package is empty</p>
+            <span>Browse the menu and add items</span>
         </div>
-        <button type="button" onclick="checkout()" class="cta-button checkout-btn">
-            <span>💬</span> Order on WhatsApp
+    </div>
+
+    <div class="package-sidebar-footer">
+        <div class="package-item-count">
+            <span id="packageItemCount">0 items</span> in your package
+        </div>
+        <button type="button" onclick="sendCustomPackage()" class="package-send-btn">
+            <span>💬</span>
+            <span>Send to WhatsApp</span>
         </button>
     </div>
 </div>
 
 <!-- OVERLAY -->
-<div id="cartOverlay" class="cart-overlay" onclick="closeCart()"></div>
+<div id="packageOverlay" class="package-overlay" onclick="closeCustomPackage()"></div>
 
 <!-- FOOTER -->
-<footer>
-    <p>&copy; 2026 Double Take Catering. All rights reserved.</p>
+<footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <span class="footer-logo">👑 Chef King's House of Food</span>
+            <p>Bringing authentic Nigerian flavors to your doorstep since 2020.</p>
+        </div>
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#menu">Menu</a>
+            <a href="#packages">Packages</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Chef King's House of Food. All rights reserved.</p>
+    </div>
 </footer>
 
 <script src="script.js"></script>
 </body>
-</html>
+    </html>
+    

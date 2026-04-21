@@ -1,5 +1,5 @@
 /**
- * Double Take Catering - Shopping Cart Application
+ * Chef King's House of Food - Custom Package & Booking Application
  */
 
 (function() {
@@ -8,17 +8,19 @@
     // === CONFIGURATION ===
     const CONFIG = {
         PHONE_NUMBER: '2347050216396',
-        STORAGE_KEY: 'doubletake_cart',
+        STORAGE_KEY: 'chefking_package',
         CURRENCY: '₦'
     };
 
     // === STATE ===
-    let cart = [];
+    let customPackage = [];
 
     // === INITIALIZATION ===
     document.addEventListener('DOMContentLoaded', function() {
-        loadCartFromStorage();
-        updateCartUI();
+        loadPackageFromStorage();
+        updatePackageUI();
+        initParticles();
+        initNavbarScroll();
         
         // Set minimum date to today
         const dateInput = document.getElementById('eventDate');
@@ -30,10 +32,42 @@
         // Keyboard support
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
-                closeCart();
+                closeCustomPackage();
             }
         });
     });
+
+    // === PARTICLES ===
+    function initParticles() {
+        const container = document.getElementById('particles');
+        if (!container) return;
+        
+        const particleCount = 25;
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particle.style.animationDelay = (Math.random() * 10) + 's';
+            particle.style.width = (Math.random() * 4 + 2) + 'px';
+            particle.style.height = particle.style.width;
+            container.appendChild(particle);
+        }
+    }
+
+    // === NAVBAR SCROLL ===
+    function initNavbarScroll() {
+        const navbar = document.getElementById('navbar');
+        if (!navbar) return;
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    }
 
     // === SANITIZATION ===
     function sanitize(str) {
@@ -44,137 +78,142 @@
     }
 
     // === LOCAL STORAGE ===
-    function saveCartToStorage() {
+    function savePackageToStorage() {
         try {
-            localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(cart));
+            localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(customPackage));
         } catch (e) {
-            console.warn('Could not save cart:', e);
+            console.warn('Could not save package:', e);
         }
     }
 
-    function loadCartFromStorage() {
+    function loadPackageFromStorage() {
         try {
             const stored = localStorage.getItem(CONFIG.STORAGE_KEY);
             if (stored) {
                 const parsed = JSON.parse(stored);
                 if (Array.isArray(parsed)) {
-                    cart = parsed;
+                    customPackage = parsed;
                 }
             }
         } catch (e) {
-            cart = [];
+            customPackage = [];
         }
     }
 
     // === VALIDATION ===
-    function validateItem(name, price) {
-        if (typeof name !== 'string' || name.trim().length === 0) return false;
-        if (typeof price !== 'number' || price <= 0 || !isFinite(price)) return false;
-        return true;
+    function validateItem(name) {
+        return typeof name === 'string' && name.trim().length > 0;
     }
 
-    // === ADD TO CART ===
-    window.addToCart = function(name, price) {
-        if (!validateItem(name, price)) return;
+     // === ADD TO CUSTOM PACKAGE ===
+    window.addToPackage = function(name) {
+        if (!validateItem(name)) return;
         
-        const existing = cart.find(item => item.name === name);
+        const existing = customPackage.find(item => item.name === name);
         if (existing) {
-            existing.quantity += 1;
-        } else {
-            cart.push({ name: name.trim(), price: price, quantity: 1 });
+            showNotification(sanitize(name) + ' is already in your package', 'info');
+            openCustomPackage();
+            return;
         }
+        
+        customPackage.push({ 
+            name: name.trim(), 
+            quantity: 1 
+        });
 
-        saveCartToStorage();
-        updateCartUI();
-        showNotification(`${sanitize(name)} added to cart`);
+        savePackageToStorage();
+        updatePackageUI();
+        showNotification(sanitize(name) + ' added to package');
     };
 
-    // === UPDATE CART UI ===
-    window.updateCartUI = function() {
-        const cartItems = document.getElementById('cartItems');
-        const cartCount = document.getElementById('cartCount');
-        const cartTotal = document.getElementById('cartTotal');
+    // === UPDATE PACKAGE UI ===
+    window.updatePackageUI = function() {
+        const packageItems = document.getElementById('packageItems');
+        const packageCount = document.getElementById('packageCount');
+        const packageItemCount = document.getElementById('packageItemCount');
 
-        if (!cartItems || !cartCount || !cartTotal) return;
+        if (!packageItems || !packageCount || !packageItemCount) return;
 
-        let totalItems = 0;
-        let totalPrice = 0;
+        const totalItems = customPackage.length;
 
-        if (cart.length === 0) {
-            cartItems.innerHTML = `
-                <div class="empty-cart">
-                    <div class="empty-cart-icon">🛒</div>
-                    <p>Your cart is empty</p>
-                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Add items from the menu</p>
+        if (customPackage.length === 0) {
+            packageItems.innerHTML = `
+                <div class="empty-package">
+                    <div class="empty-package-icon">🍽️</div>
+                    <p>Your package is empty</p>
+                    <span>Browse the menu and add items</span>
                 </div>
             `;
         } else {
-            cartItems.innerHTML = '';
+            packageItems.innerHTML = '';
             
-            cart.forEach((item, index) => {
-                totalItems += item.quantity;
-                totalPrice += item.price * item.quantity;
-
+            customPackage.forEach((item, index) => {
                 const itemEl = document.createElement('div');
-                itemEl.className = 'cart-item';
+                itemEl.className = 'package-item';
                 itemEl.innerHTML = `
-                    <div class="cart-item-name">${sanitize(item.name)}</div>
-                    <div class="cart-item-row">
-                        <div class="quantity-controls">
-                            <button type="button" class="qty-btn" onclick="changeQty(${index}, -1)" ${item.quantity <= 1 ? 'disabled' : ''}>−</button>
-                            <span class="quantity-display">${item.quantity}</span>
-                            <button type="button" class="qty-btn" onclick="changeQty(${index}, 1)">+</button>
+                    <div class="package-item-name">${sanitize(item.name)}</div>
+                    <div class="package-item-row">
+                        <div class="quantity-input-wrapper">
+                            <span class="qty-label">Qty:</span>
+                            <input type="number" 
+                                   class="qty-input" 
+                                   value="${item.quantity}" 
+                                   min="1" 
+                                   onchange="updateQuantity(${index}, this.value)"
+                                   onclick="this.select()">
                         </div>
-                        <span class="cart-item-price">${CONFIG.CURRENCY}${(item.price * item.quantity).toLocaleString()}</span>
+                        <button type="button" class="remove-btn" onclick="removeFromPackage(${index})">Remove</button>
                     </div>
-                    <button type="button" class="remove-btn" onclick="removeFromCart(${index})">Remove item</button>
                 `;
-                cartItems.appendChild(itemEl);
+                packageItems.appendChild(itemEl);
             });
         }
 
-        cartCount.textContent = totalItems;
-        cartTotal.textContent = totalPrice.toLocaleString();
+        packageCount.textContent = totalItems;
+        packageItemCount.textContent = totalItems + (totalItems === 1 ? ' item' : ' items');
     };
 
-    // === CHANGE QUANTITY ===
-    window.changeQty = function(index, delta) {
-        if (index < 0 || index >= cart.length) return;
+    // === UPDATE QUANTITY ===
+    window.updateQuantity = function(index, value) {
+        if (index < 0 || index >= customPackage.length) return;
         
-        const newQuantity = cart[index].quantity + delta;
-        if (newQuantity < 1) return;
+        const newQuantity = parseInt(value);
+        if (isNaN(newQuantity) || newQuantity < 1) {
+            updatePackageUI();
+            return;
+        }
         
-        cart[index].quantity = newQuantity;
-        saveCartToStorage();
-        updateCartUI();
+        customPackage[index].quantity = newQuantity;
+        savePackageToStorage();
+        updatePackageUI();
     };
 
     // === REMOVE ITEM ===
-    window.removeFromCart = function(index) {
-        if (index < 0 || index >= cart.length) return;
+    window.removeFromPackage = function(index) {
+        if (index < 0 || index >= customPackage.length) return;
         
-        const itemName = cart[index].name;
-        cart.splice(index, 1);
+        const itemName = customPackage[index].name;
+        customPackage.splice(index, 1);
         
-        saveCartToStorage();
-        updateCartUI();
-        showNotification(`${sanitize(itemName)} removed`, 'info');
+        savePackageToStorage();
+        updatePackageUI();
+        showNotification(sanitize(itemName) + ' removed', 'info');
     };
 
-    // === TOGGLE CART ===
-    window.toggleCart = function() {
-        const sidebar = document.getElementById('cartSidebar');
+     // === TOGGLE CUSTOM PACKAGE SIDEBAR ===
+    window.toggleCustomPackage = function() {
+        const sidebar = document.getElementById('packageSidebar');
         if (sidebar.classList.contains('open')) {
-            closeCart();
+            closeCustomPackage();
         } else {
-            openCart();
+            openCustomPackage();
         }
     };
 
-    // === OPEN CART ===
-    window.openCart = function() {
-        const sidebar = document.getElementById('cartSidebar');
-        const overlay = document.getElementById('cartOverlay');
+    // === OPEN PACKAGE SIDEBAR ===
+    window.openCustomPackage = function() {
+        const sidebar = document.getElementById('packageSidebar');
+        const overlay = document.getElementById('packageOverlay');
         const body = document.body;
 
         if (!sidebar || !overlay) return;
@@ -184,10 +223,10 @@
         body.style.overflow = 'hidden';
     };
 
-    // === CLOSE CART ===
-    window.closeCart = function() {
-        const sidebar = document.getElementById('cartSidebar');
-        const overlay = document.getElementById('cartOverlay');
+    // === CLOSE PACKAGE SIDEBAR ===
+    window.closeCustomPackage = function() {
+        const sidebar = document.getElementById('packageSidebar');
+        const overlay = document.getElementById('packageOverlay');
         const body = document.body;
 
         if (!sidebar || !overlay) return;
@@ -200,69 +239,45 @@
     // === TOGGLE MOBILE MENU ===
     window.toggleMobileMenu = function() {
         const navLinks = document.getElementById('navLinks');
+        const toggle = document.querySelector('.mobile-menu-toggle');
         if (navLinks) {
             navLinks.classList.toggle('active');
+            toggle.classList.toggle('active');
         }
     };
 
     // === FILTER MENU ===
     window.filterMenu = function(category, btnElement) {
         const items = document.querySelectorAll('.menu-item');
-        const buttons = document.querySelectorAll('.menu-filters .cta-button');
+        const buttons = document.querySelectorAll('.filter-btn');
         
         buttons.forEach(btn => btn.classList.remove('active'));
         if (btnElement) btnElement.classList.add('active');
 
         items.forEach(item => {
             const itemCategory = item.getAttribute('data-category');
-            item.style.display = (category === 'all' || itemCategory === category) ? 'flex' : 'none';
+            if (category === 'all' || itemCategory === category) {
+                item.style.display = 'flex';
+                item.style.animation = 'fade-in-up 0.4s ease-out';
+            } else {
+                item.style.display = 'none';
+            }
         });
     };
 
-    // === SELECT PACKAGE ===
-    window.selectPackage = function(name, price) {
-        if (!validateItem(name, price)) return;
+    // === SELECT FIXED PACKAGE (Straight to WhatsApp) ===
+    window.selectFixedPackage = function(name) {
+        if (!validateItem(name)) return;
         
-        const existing = cart.find(item => item.name === name);
-        if (existing) {
-            existing.quantity += 1;
-        } else {
-            cart.push({ name: name.trim(), price: price, quantity: 1, type: 'package' });
-        }
-
-        saveCartToStorage();
-        updateCartUI();
-        openCart();
-        showNotification(`${sanitize(name)} package added`);
-    };
-
-    // === WHATSAPP CHECKOUT ===
-    window.checkout = function() {
-        if (cart.length === 0) {
-            showNotification('Your cart is empty', 'error');
-            return;
-        }
-
-        let message = "Hello, I want to order:\n\n";
-        let total = 0;
-
-        cart.forEach(item => {
-            const itemTotal = item.price * item.quantity;
-            total += itemTotal;
-            message += `${item.name} x ${item.quantity} - ${CONFIG.CURRENCY}${itemTotal.toLocaleString()}\n`;
-        });
-
-        message += `\nTotal: ${CONFIG.CURRENCY}${total.toLocaleString()}\n`;
-        message += "\nName:\nPhone:\nAddress:";
+        let message = "Hello Chef King's House of Food! 👑\n\n";
+        message += "I'm interested in your *" + sanitize(name) + "* catering package.\n\n";
+        message += "Please send me the pricing and availability details.\n\n";
+        message += "Name:\nPhone:\nEvent Date:\nNumber of Guests:\nLocation:";
 
         const encodedMessage = encodeURIComponent(message);
         window.open(`https://wa.me/${CONFIG.PHONE_NUMBER}?text=${encodedMessage}`, "_blank");
-
-        cart = [];
-        saveCartToStorage();
-        updateCartUI();
-        closeCart();
-        showNotification('Redirecting to WhatsApp...');
+        
+        showNotification('Opening WhatsApp for ' + sanitize(name) + '...');
     };
 
     // === BOOKING FORM ===
@@ -271,12 +286,14 @@
 
         const name = document.getElementById('fullName').value.trim();
         const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
         const eventType = document.getElementById('eventType').value;
         const date = document.getElementById('eventDate').value;
         const guests = parseInt(document.getElementById('guests').value);
+        const message = document.getElementById('message').value.trim();
 
-        if (!name || !email || !eventType || !date || !guests) {
-            showNotification('Please fill in all fields', 'error');
+        if (!name || !email || !phone || !eventType || !date || !guests) {
+            showNotification('Please fill in all required fields', 'error');
             return;
         }
 
@@ -294,66 +311,79 @@
             return;
         }
 
-        let message = `Hello, I want to book an event:\n\n`;
-        message += `Name: ${name}\n`;
-        message += `Email: ${email}\n`;
-        message += `Event Type: ${eventType}\n`;
-        message += `Date: ${date}\n`;
-        message += `Guests: ${guests}\n`;
+        let whatsappMessage = "Hello Chef King's House of Food! 👑\n\n";
+        whatsappMessage += "*New Event Booking Request*\n\n";
+        whatsappMessage += `Name: ${name}\n`;
+        whatsappMessage += `Email: ${email}\n`;
+        whatsappMessage += `Phone: ${phone}\n`;
+        whatsappMessage += `Event Type: ${eventType}\n`;
+        whatsappMessage += `Date: ${date}\n`;
+        whatsappMessage += `Guests: ${guests}\n`;
+        
+        if (message) {
+            whatsappMessage += `\nAdditional Notes:\n${message}\n`;
+        }
 
-        const encodedMessage = encodeURIComponent(message);
+        const encodedMessage = encodeURIComponent(whatsappMessage);
         window.open(`https://wa.me/${CONFIG.PHONE_NUMBER}?text=${encodedMessage}`, "_blank");
         
         e.target.reset();
-        showNotification('Booking request sent!');
+        showNotification('Booking request sent! Redirecting to WhatsApp...', 'success');
     };
 
-    // === NOTIFICATION ===
+     // === SEND CUSTOM PACKAGE TO WHATSAPP ===
+    window.sendCustomPackage = function() {
+        if (customPackage.length === 0) {
+            showNotification('Your package is empty', 'error');
+            return;
+        }
+
+        let message = "Hello Chef King's House of Food! 👑\n\n";
+        message += "*My Custom Package Order:*\n\n";
+
+        customPackage.forEach(item => {
+            message += `• ${sanitize(item.name)} — Qty: ${item.quantity}\n`;
+        });
+
+        message += "\nPlease send me a quote for this package.\n\n";
+        message += "Name:\nPhone:\nDelivery Address:\nEvent Date (if any):";
+
+        const encodedMessage = encodeURIComponent(message);
+        window.open(`https://wa.me/${CONFIG.PHONE_NUMBER}?text=${encodedMessage}`, "_blank");
+
+        showNotification('Opening WhatsApp with your custom package...', 'success');
+        
+        // Optional: clear package after sending
+        // customPackage = [];
+        // savePackageToStorage();
+        // updatePackageUI();
+        // closeCustomPackage();
+    };
+
+    // === NOTIFICATION SYSTEM ===
     function showNotification(msg, type = 'success') {
         const existing = document.querySelector('.notification');
         if (existing) existing.remove();
 
-        const n = document.createElement('div');
-        n.className = 'notification';
-        n.textContent = msg;
-        n.setAttribute('role', 'alert');
+        const notification = document.createElement('div');
+        notification.className = 'notification ' + type;
+        notification.textContent = msg;
+        notification.setAttribute('role', 'alert');
 
-        const colors = {
-            success: '#0f172a',
-            error: '#dc2626',
-            info: '#0369a1'
-        };
-        
-        n.style.cssText = `
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            background: ${colors[type] || colors.success};
-            color: #fff;
-            padding: 14px 24px;
-            border-radius: 10px;
-            z-index: 10000;
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            max-width: 320px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            font-weight: 500;
-        `;
+        document.body.appendChild(notification);
 
-        document.body.appendChild(n);
+        // Trigger reflow
+        notification.offsetHeight;
 
         requestAnimationFrame(() => {
-            n.style.opacity = '1';
-            n.style.transform = 'translateY(0)';
+            notification.classList.add('show');
         });
 
         setTimeout(() => {
-            n.style.opacity = '0';
-            n.style.transform = 'translateY(-10px)';
-            setTimeout(() => n.remove(), 300);
+            notification.classList.remove('show');
+            setTimeout(() => notification.remove(), 300);
         }, 3000);
     }
 
 })();
- 
+        

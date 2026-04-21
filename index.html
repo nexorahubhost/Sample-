@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Double Take Catering | Premium Event Catering</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+    <div class="nav-container">
+        <a href="#" class="logo">🍽️ Double Take Catering</a>
+        
+        <button type="button" class="mobile-menu-toggle" aria-label="Toggle navigation menu" onclick="toggleMobileMenu()">
+            ☰
+        </button>
+        
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#contact">Book Now</a></li>
+        </ul>
+        
+        <button type="button" class="cart-btn" aria-label="Shopping cart" onclick="toggleCart()">
+            🛒 <span id="cartCount">0</span>
+        </button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Exceptional Catering for Every Occasion</h1>
+        <p>From intimate gatherings to grand celebrations, we bring delicious Nigerian meals and premium service.</p>
+        <a href="#menu" class="cta-button">Explore Our Menu</a>
+    </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+    <h2 class="section-title">Our Menu</h2>
+
+    <div class="menu-filters">
+        <button type="button" onclick="filterMenu('all', this)" class="cta-button active">All</button>
+        <button type="button" onclick="filterMenu('appetizer', this)" class="cta-button">Small Chops</button>
+        <button type="button" onclick="filterMenu('main', this)" class="cta-button">Main</button>
+        <button type="button" onclick="filterMenu('dessert', this)" class="cta-button">Dessert</button>
+        <button type="button" onclick="filterMenu('beverage', this)" class="cta-button">Drinks</button>
+    </div>
+
+    <div class="menu-grid">
+
+        <!-- ITEM -->
+        <div class="menu-item" data-category="main">
+            <h3>Jollof Rice & Chicken</h3>
+            <p>Smoky party jollof served with grilled chicken</p>
+            <span class="price">₦3,500</span>
+            <button type="button" class="cta-button" onclick="addToCart('Jollof Rice & Chicken', 3500)">Add to Cart</button>
+        </div>
+
+        <div class="menu-item" data-category="main">
+            <h3>Fried Rice & Turkey</h3>
+            <p>Classic fried rice with seasoned turkey</p>
+            <span class="price">₦4,000</span>
+            <button type="button" class="cta-button" onclick="addToCart('Fried Rice & Turkey', 4000)">Add to Cart</button>
+        </div>
+
+        <div class="menu-item" data-category="appetizer">
+            <h3>Small Chops Combo</h3>
+            <p>Puff puff, samosa, spring rolls & gizdodo</p>
+            <span class="price">₦2,500</span>
+            <button type="button" class="cta-button" onclick="addToCart('Small Chops Combo', 2500)">Add to Cart</button>
+        </div>
+
+        <div class="menu-item" data-category="main">
+            <h3>Pounded Yam & Egusi</h3>
+            <p>Rich egusi soup with assorted meat</p>
+            <span class="price">₦4,500</span>
+            <button type="button" class="cta-button" onclick="addToCart('Pounded Yam & Egusi', 4500)">Add to Cart</button>
+        </div>
+
+        <div class="menu-item" data-category="dessert">
+            <h3>Coconut Candy & Cake</h3>
+            <p>Sweet treats to finish your meal</p>
+            <span class="price">₦1,500</span>
+            <button type="button" class="cta-button" onclick="addToCart('Coconut Candy & Cake', 1500)">Add to Cart</button>
+        </div>
+
+        <div class="menu-item" data-category="beverage">
+            <h3>Zobo Drink</h3>
+            <p>Freshly made zobo with natural flavors</p>
+            <span class="price">₦800</span>
+            <button type="button" class="cta-button" onclick="addToCart('Zobo Drink', 800)">Add to Cart</button>
+        </div>
+
+        <div class="menu-item" data-category="beverage">
+            <h3>Chapman</h3>
+            <p>Refreshing Nigerian cocktail</p>
+            <span class="price">₦1,200</span>
+            <button type="button" class="cta-button" onclick="addToCart('Chapman', 1200)">Add to Cart</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- PACKAGES -->
+<section id="packages" class="packages">
+    <h2 class="section-title">Catering Packages</h2>
+
+    <div class="packages-grid">
+
+        <div class="package-card">
+            <h3>Owambe Starter</h3>
+            <p class="package-price">₦12,000 <span>/ person</span></p>
+            <ul class="package-features">
+                <li>Rice Dishes</li>
+                <li>Chicken or Turkey</li>
+                <li>Small Chops</li>
+                <li>Drinks</li>
+                <li>Basic Setup</li>
+            </ul>
+            <button type="button" onclick="selectPackage('Owambe Starter', 12000)" class="cta-button">Select</button>
+        </div>
+
+        <div class="package-card featured">
+            <div class="popular-badge">POPULAR</div>
+            <h3>Party Standard</h3>
+            <p class="package-price">₦20,000 <span>/ person</span></p>
+            <ul class="package-features">
+                <li>Jollof + Fried Rice</li>
+                <li>Chicken & Beef</li>
+                <li>Small Chops</li>
+                <li>2 Drinks Options</li>
+                <li>Service Staff</li>
+            </ul>
+            <button type="button" onclick="selectPackage('Party Standard', 20000)" class="cta-button">Select</button>
+        </div>
+
+        <div class="package-card">
+            <h3>Premium Owambe</h3>
+            <p class="package-price">₦35,000 <span>/ person</span></p>
+            <ul class="package-features">
+                <li>Multiple Dishes</li>
+                <li>Asun, Turkey & Assorted Meat</li>
+                <li>Full Small Chops Table</li>
+                <li>Chapman & Cocktails</li>
+                <li>Full Service</li>
+            </ul>
+            <button type="button" onclick="selectPackage('Premium Owambe', 35000)" class="cta-button">Select</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2 class="section-title">Book Your Event</h2>
+
+    <form class="contact-form" onsubmit="handleBooking(event)">
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required aria-required="true">
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required aria-required="true">
+        </div>
+        
+        <div class="form-group">
+            <label for="eventType">Type of Event</label>
+            <select id="eventType" name="eventType" required aria-required="true">
+                <option value="" disabled selected>Select event type</option>
+                <option value="Wedding">Wedding</option>
+                <option value="Birthday Party">Birthday Party</option>
+                <option value="Corporate Event">Corporate Event</option>
+                <option value="Naming Ceremony">Naming Ceremony</option>
+                <option value="Burial Ceremony">Burial Ceremony</option>
+                <option value="House Warming">House Warming</option>
+                <option value="Anniversary">Anniversary</option>
+                <option value="Graduation Party">Graduation Party</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="eventDate">Event Date</label>
+            <input type="date" id="eventDate" name="eventDate" required aria-required="true">
+        </div>
+        
+        <div class="form-group">
+            <label for="guests">Number of Guests</label>
+            <input type="number" id="guests" name="guests" placeholder="How many guests?" min="1" required aria-required="true">
+        </div>
+        
+        <button type="submit" class="submit-btn">Submit Booking</button>
+    </form>
+</section>
+
+<!-- CART SIDEBAR - FIXED STRUCTURE -->
+<div id="cartSidebar" class="cart-sidebar">
+    <div class="cart-header">
+        <h3>Your Order</h3>
+        <button type="button" class="cart-close-btn" onclick="closeCart()" aria-label="Close cart">
+            ✕
+        </button>
+    </div>
+
+    <div id="cartItems" class="cart-items-container"></div>
+
+    <div class="cart-footer">
+        <div class="cart-total-row">
+            <span>Total:</span>
+            <span class="total-amount">₦<span id="cartTotal">0</span></span>
+        </div>
+        <button type="button" onclick="checkout()" class="cta-button checkout-btn">
+            <span>💬</span> Order on WhatsApp
+        </button>
+    </div>
+</div>
+
+<!-- OVERLAY -->
+<div id="cartOverlay" class="cart-overlay" onclick="closeCart()"></div>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2026 Double Take Catering. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -774,6 +774,9 @@ section {
     height: 100%;
     object-fit: cover;
     display: block;
+    object-fit: contain;
+    background: #f3f4f6;
+    
 }
 
 /* keep your badge intact */

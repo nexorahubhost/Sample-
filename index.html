@@ -136,368 +136,438 @@
         <button type="button" onclick="filterMenu('beverage', this)" class="filter-btn">Drinks</button>
     </div>
 
-    <div class="menu-grid">
+  <div class="menu-grid">
 
-        <!-- RICE DISHES -->
-        <div class="menu-item" data-category="rice">
-            <div class="menu-item-image">
-                <div class="menu-item-badge">Popular</div>
-            </div>
-            <div class="menu-item-content">
-                <h3>Jollof Rice</h3>
-                <p>Smoky party-style jollof rice cooked to perfection with rich tomato base and aromatic spices</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Jollof Rice')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
+    <!-- RICE DISHES -->
 
-        <div class="menu-item" data-category="rice">
-            <div class="menu-item-image rice-fried"></div>
-            <div class="menu-item-content">
-                <h3>Fried Rice</h3>
-                <p>Classic Nigerian fried rice with mixed vegetables, liver, and signature seasoning</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Fried Rice')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
+    <div class="menu-item" data-category="rice">
+        <div class="menu-item-image">
+            <img src="https://via.placeholder.com/400x300" alt="Jollof Rice">
+            <div class="menu-item-badge">Popular</div>
         </div>
-
-        <div class="menu-item" data-category="rice">
-            <div class="menu-item-image rice-chinese"></div>
-            <div class="menu-item-content">
-                <h3>Chinese Fried Rice</h3>
-                <p>Oriental-style fried rice with scrambled eggs, spring onions, and soy sauce blend</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Chinese Fried Rice')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
+        <div class="menu-item-content">
+            <h3>Jollof Rice</h3>
+            <p>Smoky party-style jollof rice cooked to perfection with rich tomato base and aromatic spices</p>
+            <button type="button" class="add-package-btn" onclick="addToPackage('Jollof Rice')">
+                <span>+</span> Add to Package
+            </button>
         </div>
-
-        <div class="menu-item" data-category="rice">
-            <div class="menu-item-image rice-white"></div>
-            <div class="menu-item-content">
-                <h3>White Rice</h3>
-                <p>Fluffy steamed white rice — a perfect canvas for your favorite soups and stews</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('White Rice')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="rice">
-            <div class="menu-item-image rice-coconut"></div>
-            <div class="menu-item-content">
-                <h3>Coconut Rice</h3>
-                <p>Aromatic rice cooked in rich coconut milk with peppers and spices</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Coconut Rice')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <!-- SOUPS -->
-        <div class="menu-item" data-category="soup">
-            <div class="menu-item-image soup-egusi"></div>
-            <div class="menu-item-content">
-                <h3>Egusi Soup</h3>
-                <p>Rich, thick melon seed soup with assorted meat, fish, and leafy vegetables</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Egusi Soup')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="soup">
-            <div class="menu-item-image soup-efo"></div>
-            <div class="menu-item-content">
-                <h3>Efo Riro</h3>
-                <p>Flavorful Yoruba vegetable stew with palm oil, locust beans, and assorted meat</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Efo Riro')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="soup">
-            <div class="menu-item-image soup-ogbono"></div>
-            <div class="menu-item-content">
-                <h3>Ogbono Soup</h3>
-                <p>Draw soup made from wild mango seeds with rich, slimy texture and bold flavors</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Ogbono Soup')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="soup">
-            <div class="menu-item-image soup-afang"></div>
-            <div class="menu-item-content">
-                <h3>Afang Soup</h3>
-                <p>Delicious Efik vegetable soup with waterleaf, afang leaves, and seafood</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Afang Soup')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="soup">
-            <div class="menu-item-image soup-edikaikong"></div>
-            <div class="menu-item-content">
-                <h3>Edikaikong</h3>
-                <p>Rich Calabar soup with pumpkin leaves, waterleaf, and generous protein portions</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Edikaikong')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="soup">
-            <div class="menu-item-image soup-banga"></div>
-            <div class="menu-item-content">
-                <h3>Banga Soup</h3>
-                <p>Delta-style palm nut soup with native spices and fresh fish or meat</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Banga Soup')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <!-- SWALLOW -->
-        <div class="menu-item" data-category="swallow">
-            <div class="menu-item-image swallow-pounded"></div>
-            <div class="menu-item-content">
-                <h3>Pounded Yam</h3>
-                <p>Smooth, stretchy yam pounded to perfection — the classic pairing for any soup</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Pounded Yam')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="swallow">
-            <div class="menu-item-image swallow-amala"></div>
-            <div class="menu-item-content">
-                <h3>Amala</h3>
-                <p>Smooth, dark yam flour swallow — a Yoruba favorite for ewedu and gbegiri</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Amala')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="swallow">
-            <div class="menu-item-image swallow-eba"></div>
-            <div class="menu-item-content">
-                <h3>Eba (Garri)</h3>
-                <p>Classic cassava granules prepared firm or soft to your preference</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Eba (Garri)')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="swallow">
-            <div class="menu-item-image swallow-semo"></div>
-            <div class="menu-item-content">
-                <h3>Semo</h3>
-                <p>Smooth semolina swallow with a light, fluffy texture</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Semo')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="swallow">
-            <div class="menu-item-image swallow-fufu"></div>
-            <div class="menu-item-content">
-                <h3>Fufu</h3>
-                <p>Traditional fermented cassava swallow with a unique tangy flavor</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Fufu')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-                <!-- PROTEINS -->
-        <div class="menu-item" data-category="protein">
-            <div class="menu-item-image protein-chicken"></div>
-            <div class="menu-item-content">
-                <h3>Grilled Chicken</h3>
-                <p>Juicy, well-seasoned chicken grilled with Nigerian spices and herbs</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Grilled Chicken')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="protein">
-            <div class="menu-item-image protein-turkey"></div>
-            <div class="menu-item-content">
-                <h3>Turkey</h3>
-                <p>Tender turkey cuts seasoned and cooked in traditional style</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Turkey')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="protein">
-            <div class="menu-item-image protein-beef"></div>
-            <div class="menu-item-content">
-                <h3>Beef</h3>
-                <p>Succulent beef chunks slow-cooked in rich pepper sauce</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Beef')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="protein">
-            <div class="menu-item-image protein-goat"></div>
-            <div class="menu-item-content">
-                <h3>Goat Meat (Asun)</h3>
-                <p>Spicy grilled goat meat cuts — a party favorite</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Goat Meat (Asun)')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="protein">
-            <div class="menu-item-image protein-assorted"></div>
-            <div class="menu-item-content">
-                <h3>Assorted Meat</h3>
-                <p>Mix of beef, shaki, roundabout, and other offals in spicy sauce</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Assorted Meat')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="protein">
-            <div class="menu-item-image protein-fish"></div>
-            <div class="menu-item-content">
-                <h3>Stock Fish & Dry Fish</h3>
-                <p>Traditional dried fish varieties for authentic soup flavor</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Stock Fish & Dry Fish')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="protein">
-            <div class="menu-item-image protein-cowleg"></div>
-            <div class="menu-item-content">
-                <h3>Cow Leg (Bokoto)</h3>
-                <p>Tender, gelatinous cow leg slow-cooked in pepper sauce</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Cow Leg (Bokoto)')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <!-- SMALL CHOPS -->
-        <div class="menu-item" data-category="appetizer">
-            <div class="menu-item-image chop-combo"></div>
-            <div class="menu-item-content">
-                <h3>Small Chops Combo</h3>
-                <p>Puff puff, samosa, spring rolls & gizdodo — the perfect party starter</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Small Chops Combo')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="appetizer">
-            <div class="menu-item-image chop-puff"></div>
-            <div class="menu-item-content">
-                <h3>Puff Puff</h3>
-                <p>Soft, fluffy Nigerian dough balls — sweet and irresistible</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Puff Puff')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="appetizer">
-            <div class="menu-item-image chop-samosa"></div>
-            <div class="menu-item-content">
-                <h3>Samosa</h3>
-                <p>Crispy pastry pockets filled with spiced meat or vegetable filling</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Samosa')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="appetizer">
-            <div class="menu-item-image chop-spring"></div>
-            <div class="menu-item-content">
-                <h3>Spring Rolls</h3>
-                <p>Crispy vegetable-filled rolls with sweet chili dipping sauce</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Spring Rolls')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="appetizer">
-            <div class="menu-item-image chop-gizdodo"></div>
-            <div class="menu-item-content">
-                <h3>Gizdodo</h3>
-                <p>Spicy gizzard and plantain combo — a true Nigerian delicacy</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Gizdodo')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <!-- DRINKS -->
-        <div class="menu-item" data-category="beverage">
-            <div class="menu-item-image drink-zobo"></div>
-            <div class="menu-item-content">
-                <h3>Zobo Drink</h3>
-                <p>Freshly brewed hibiscus drink with natural spices and flavors</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Zobo Drink')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="beverage">
-            <div class="menu-item-image drink-chapman"></div>
-            <div class="menu-item-content">
-                <h3>Chapman</h3>
-                <p>Refreshing Nigerian mocktail with a unique fruity blend</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Chapman')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="beverage">
-            <div class="menu-item-image drink-fresh"></div>
-            <div class="menu-item-content">
-                <h3>Fresh Juice</h3>
-                <p>Freshly squeezed fruit juices — orange, pineapple, watermelon</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Fresh Juice')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
-        <div class="menu-item" data-category="beverage">
-            <div class="menu-item-image drink-soft"></div>
-            <div class="menu-item-content">
-                <h3>Soft Drinks</h3>
-                <p>Assorted chilled soft drinks and mineral water</p>
-                <button type="button" class="add-package-btn" onclick="addToPackage('Soft Drinks')">
-                    <span>+</span> Add to Package
-                </button>
-            </div>
-        </div>
-
     </div>
+
+    <div class="menu-item" data-category="rice">
+        <div class="menu-item-image">
+            <img src="https://via.placeholder.com/400x300" alt="Fried Rice">
+        </div>
+        <div class="menu-item-content">
+            <h3>Fried Rice</h3>
+            <p>Classic Nigerian fried rice with mixed vegetables, liver, and signature seasoning</p>
+            <button type="button" class="add-package-btn" onclick="addToPackage('Fried Rice')">
+                <span>+</span> Add to Package
+            </button>
+        </div>
+    </div>
+
+    <div class="menu-item" data-category="rice">
+        <div class="menu-item-image">
+            <img src="https://via.placeholder.com/400x300" alt="Chinese Fried Rice">
+        </div>
+        <div class="menu-item-content">
+            <h3>Chinese Fried Rice</h3>
+            <p>Oriental-style fried rice with scrambled eggs, spring onions, and soy sauce blend</p>
+            <button type="button" class="add-package-btn" onclick="addToPackage('Chinese Fried Rice')">
+                <span>+</span> Add to Package
+            </button>
+        </div>
+    </div>
+
+    <div class="menu-item" data-category="rice">
+        <div class="menu-item-image">
+            <img src="https://via.placeholder.com/400x300" alt="White Rice">
+        </div>
+        <div class="menu-item-content">
+            <h3>White Rice</h3>
+            <p>Fluffy steamed white rice — a perfect canvas for your favorite soups and stews</p>
+            <button type="button" class="add-package-btn" onclick="addToPackage('White Rice')">
+                <span>+</span> Add to Package
+            </button>
+        </div>
+    </div>
+
+    <div class="menu-item" data-category="rice">
+        <div class="menu-item-image">
+            <img src="https://via.placeholder.com/400x300" alt="Coconut Rice">
+        </div>
+        <div class="menu-item-content">
+            <h3>Coconut Rice</h3>
+            <p>Aromatic rice cooked in rich coconut milk with peppers and spices</p>
+            <button type="button" class="add-package-btn" onclick="addToPackage('Coconut Rice')">
+                <span>+</span> Add to Package
+            </button>
+        </div>
+    </div>
+
+    <!-- SOUPS -->
+
+    <div class="menu-item" data-category="soup">
+        <div class="menu-item-image">
+            <img src="https://via.placeholder.com/400x300" alt="Egusi Soup">
+        </div>
+        <div class="menu-item-content">
+            <h3>Egusi Soup</h3>
+            <p>Rich, thick melon seed soup with assorted meat, fish, and leafy vegetables</p>
+            <button type="button" class="add-package-btn" onclick="addToPackage('Egusi Soup')">
+                <span>+</span> Add to Package
+            </button>
+        </div>
+    </div>
+
+    <div class="menu-item" data-category="soup">
+        <div class="menu-item-image">
+            <img src="https://via.placeholder.com/400x300" alt="Efo Riro">
+        </div>
+        <div class="menu-item-content">
+            <h3>Efo Riro</h3>
+            <p>Flavorful Yoruba vegetable stew with palm oil, locust beans, and assorted meat</p>
+            <button type="button" class="add-package-btn" onclick="addToPackage('Efo Riro')">
+                <span>+</span> Add to Package
+            </button>
+        </div>
+    </div>
+
+    <div class="menu-item" data-category="soup">
+        <div class="menu-item-image">
+            <img src="https://via.placeholder.com/400x300" alt="Ogbono Soup">
+        </div>
+        <div class="menu-item-content">
+            <h3>Ogbono Soup</h3>
+            <p>Draw soup made from wild mango seeds with rich, slimy texture and bold flavors</p>
+            <button type="button" class="add-package-btn" onclick="addToPackage('Ogbono Soup')">
+                <span>+</span> Add to Package
+            </button>
+        </div>
+    </div>
+
+    <div class="menu-item" data-category="soup">
+        <div class="menu-item-image">
+            <img src="https://via.placeholder.com/400x300" alt="Afang Soup">
+        </div>
+        <div class="menu-item-content">
+            <h3>Afang Soup</h3>
+            <p>Delicious Efik vegetable soup with waterleaf, afang leaves, and seafood</p>
+            <button type="button" class="add-package-btn" onclick="addToPackage('Afang Soup')">
+                <span>+</span> Add to Package
+            </button>
+        </div>
+    </div>
+
+    <div class="menu-item" data-category="soup">
+        <div class="menu-item-image">
+            <img src="https://via.placeholder.com/400x300" alt="Edikaikong">
+        </div>
+        <div class="menu-item-content">
+            <h3>Edikaikong</h3>
+            <p>Rich Calabar soup with pumpkin leaves, waterleaf, and generous protein portions</p>
+            <button type="button" class="add-package-btn" onclick="addToPackage('Edikaikong')">
+                <span>+</span> Add to Package
+            </button>
+        </div>
+    </div>
+
+    <div class="menu-item" data-category="soup">
+        <div class="menu-item-image">
+            <img src="https://via.placeholder.com/400x300" alt="Banga Soup">
+        </div>
+        <div class="menu-item-content">
+            <h3>Banga Soup</h3>
+            <p>Delta-style palm nut soup with native spices and fresh fish or meat</p>
+            <button type="button" class="add-package-btn" onclick="addToPackage('Banga Soup')">
+                <span>+</span> Add to Package
+            </button>
+        </div>
+    </div>
+
+</div>
+     <!-- SWALLOW -->
+
+<div class="menu-item" data-category="swallow">
+    <div class="menu-item-image">
+        <img src="https://via.placeholder.com/400x300" alt="Pounded Yam">
+    </div>
+    <div class="menu-item-content">
+        <h3>Pounded Yam</h3>
+        <p>Smooth, stretchy yam pounded to perfection — the classic pairing for any soup</p>
+        <button type="button" class="add-package-btn" onclick="addToPackage('Pounded Yam')">
+            <span>+</span> Add to Package
+        </button>
+    </div>
+</div>
+
+<div class="menu-item" data-category="swallow">
+    <div class="menu-item-image">
+        <img src="https://via.placeholder.com/400x300" alt="Amala">
+    </div>
+    <div class="menu-item-content">
+        <h3>Amala</h3>
+        <p>Smooth, dark yam flour swallow — a Yoruba favorite for ewedu and gbegiri</p>
+        <button type="button" class="add-package-btn" onclick="addToPackage('Amala')">
+            <span>+</span> Add to Package
+        </button>
+    </div>
+</div>
+
+<div class="menu-item" data-category="swallow">
+    <div class="menu-item-image">
+        <img src="https://via.placeholder.com/400x300" alt="Eba (Garri)">
+    </div>
+    <div class="menu-item-content">
+        <h3>Eba (Garri)</h3>
+        <p>Classic cassava granules prepared firm or soft to your preference</p>
+        <button type="button" class="add-package-btn" onclick="addToPackage('Eba (Garri)')">
+            <span>+</span> Add to Package
+        </button>
+    </div>
+</div>
+
+<div class="menu-item" data-category="swallow">
+    <div class="menu-item-image">
+        <img src="https://via.placeholder.com/400x300" alt="Semo">
+    </div>
+    <div class="menu-item-content">
+        <h3>Semo</h3>
+        <p>Smooth semolina swallow with a light, fluffy texture</p>
+        <button type="button" class="add-package-btn" onclick="addToPackage('Semo')">
+            <span>+</span> Add to Package
+        </button>
+    </div>
+</div>
+
+<div class="menu-item" data-category="swallow">
+    <div class="menu-item-image">
+        <img src="https://via.placeholder.com/400x300" alt="Fufu">
+    </div>
+    <div class="menu-item-content">
+        <h3>Fufu</h3>
+        <p>Traditional fermented cassava swallow with a unique tangy flavor</p>
+        <button type="button" class="add-package-btn" onclick="addToPackage('Fufu')">
+            <span>+</span> Add to Package
+        </button>
+    </div>
+</div>
+
+<!-- PROTEINS -->
+
+<div class="menu-item" data-category="protein">
+    <div class="menu-item-image">
+        <img src="https://via.placeholder.com/400x300" alt="Grilled Chicken">
+    </div>
+    <div class="menu-item-content">
+        <h3>Grilled Chicken</h3>
+        <p>Juicy, well-seasoned chicken grilled with Nigerian spices and herbs</p>
+        <button type="button" class="add-package-btn" onclick="addToPackage('Grilled Chicken')">
+            <span>+</span> Add to Package
+        </button>
+    </div>
+</div>
+
+<div class="menu-item" data-category="protein">
+    <div class="menu-item-image">
+        <img src="https://via.placeholder.com/400x300" alt="Turkey">
+    </div>
+    <div class="menu-item-content">
+        <h3>Turkey</h3>
+        <p>Tender turkey cuts seasoned and cooked in traditional style</p>
+        <button type="button" class="add-package-btn" onclick="addToPackage('Turkey')">
+            <span>+</span> Add to Package
+        </button>
+    </div>
+</div>
+
+<div class="menu-item" data-category="protein">
+    <div class="menu-item-image">
+        <img src="https://via.placeholder.com/400x300" alt="Beef">
+    </div>
+    <div class="menu-item-content">
+        <h3>Beef</h3>
+        <p>Succulent beef chunks slow-cooked in rich pepper sauce</p>
+        <button type="button" class="add-package-btn" onclick="addToPackage('Beef')">
+            <span>+</span> Add to Package
+        </button>
+    </div>
+</div>
+
+<div class="menu-item" data-category="protein">
+    <div class="menu-item-image">
+        <img src="https://via.placeholder.com/400x300" alt="Goat Meat (Asun)">
+    </div>
+    <div class="menu-item-content">
+        <h3>Goat Meat (Asun)</h3>
+        <p>Spicy grilled goat meat cuts — a party favorite</p>
+        <button type="button" class="add-package-btn" onclick="addToPackage('Goat Meat (Asun)')">
+            <span>+</span> Add to Package
+        </button>
+    </div>
+</div>
+
+<div class="menu-item" data-category="protein">
+    <div class="menu-item-image">
+        <img src="https://via.placeholder.com/400x300" alt="Assorted Meat">
+    </div>
+    <div class="menu-item-content">
+        <h3>Assorted Meat</h3>
+        <p>Mix of beef, shaki, roundabout, and other offals in spicy sauce</p>
+        <button type="button" class="add-package-btn" onclick="addToPackage('Assorted Meat')">
+            <span>+</span> Add to Package
+        </button>
+    </div>
+</div>
+
+<div class="menu-item" data-category="protein">
+    <div class="menu-item-image">
+        <img src="https://via.placeholder.com/400x300" alt="Stock Fish & Dry Fish">
+    </div>
+    <div class="menu-item-content">
+        <h3>Stock Fish & Dry Fish</h3>
+        <p>Traditional dried fish varieties for authentic soup flavor</p>
+        <button type="button" class="add-package-btn" onclick="addToPackage('Stock Fish & Dry Fish')">
+            <span>+</span> Add to Package
+        </button>
+    </div>
+</div>
+
+<div class="menu-item" data-category="protein">
+    <div class="menu-item-image">
+        <img src="https://via.placeholder.com/400x300" alt="Cow Leg (Bokoto)">
+    </div>
+    <div class="menu-item-content">
+        <h3>Cow Leg (Bokoto)</h3>
+        <p>Tender, gelatinous cow leg slow-cooked in pepper sauce</p>
+        <button type="button" class="add-package-btn" onclick="addToPackage('Cow Leg (Bokoto)')">
+            <span>+</span> Add to Package
+        </button>
+    </div>
+</div>
+    <!-- SMALL CHOPS -->
+
+<div class="menu-item" data-category="appetizer">
+    <div class="menu-item-image">
+        <img src="https://via.placeholder.com/400x300" alt="Small Chops Combo">
+    </div>
+    <div class="menu-item-content">
+        <h3>Small Chops Combo</h3>
+        <p>Puff puff, samosa, spring rolls & gizdodo — the perfect party starter</p>
+        <button type="button" class="add-package-btn" onclick="addToPackage('Small Chops Combo')">
+            <span>+</span> Add to Package
+        </button>
+    </div>
+</div>
+
+<div class="menu-item" data-category="appetizer">
+    <div class="menu-item-image">
+        <img src="https://via.placeholder.com/400x300" alt="Puff Puff">
+    </div>
+    <div class="menu-item-content">
+        <h3>Puff Puff</h3>
+        <p>Soft, fluffy Nigerian dough balls — sweet and irresistible</p>
+        <button type="button" class="add-package-btn" onclick="addToPackage('Puff Puff')">
+            <span>+</span> Add to Package
+        </button>
+    </div>
+</div>
+
+<div class="menu-item" data-category="appetizer">
+    <div class="menu-item-image">
+        <img src="https://via.placeholder.com/400x300" alt="Samosa">
+    </div>
+    <div class="menu-item-content">
+        <h3>Samosa</h3>
+        <p>Crispy pastry pockets filled with spiced meat or vegetable filling</p>
+        <button type="button" class="add-package-btn" onclick="addToPackage('Samosa')">
+            <span>+</span> Add to Package
+        </button>
+    </div>
+</div>
+
+<div class="menu-item" data-category="appetizer">
+    <div class="menu-item-image">
+        <img src="https://via.placeholder.com/400x300" alt="Spring Rolls">
+    </div>
+    <div class="menu-item-content">
+        <h3>Spring Rolls</h3>
+        <p>Crispy vegetable-filled rolls with sweet chili dipping sauce</p>
+        <button type="button" class="add-package-btn" onclick="addToPackage('Spring Rolls')">
+            <span>+</span> Add to Package
+        </button>
+    </div>
+</div>
+
+<div class="menu-item" data-category="appetizer">
+    <div class="menu-item-image">
+        <img src="https://via.placeholder.com/400x300" alt="Gizdodo">
+    </div>
+    <div class="menu-item-content">
+        <h3>Gizdodo</h3>
+        <p>Spicy gizzard and plantain combo — a true Nigerian delicacy</p>
+        <button type="button" class="add-package-btn" onclick="addToPackage('Gizdodo')">
+            <span>+</span> Add to Package
+        </button>
+    </div>
+</div>
+
+<!-- DRINKS -->
+
+<div class="menu-item" data-category="beverage">
+    <div class="menu-item-image">
+        <img src="https://via.placeholder.com/400x300" alt="Zobo Drink">
+    </div>
+    <div class="menu-item-content">
+        <h3>Zobo Drink</h3>
+        <p>Freshly brewed hibiscus drink with natural spices and flavors</p>
+        <button type="button" class="add-package-btn" onclick="addToPackage('Zobo Drink')">
+            <span>+</span> Add to Package
+        </button>
+    </div>
+</div>
+
+<div class="menu-item" data-category="beverage">
+    <div class="menu-item-image">
+        <img src="https://via.placeholder.com/400x300" alt="Chapman">
+    </div>
+    <div class="menu-item-content">
+        <h3>Chapman</h3>
+        <p>Refreshing Nigerian mocktail with a unique fruity blend</p>
+        <button type="button" class="add-package-btn" onclick="addToPackage('Chapman')">
+            <span>+</span> Add to Package
+        </button>
+    </div>
+</div>
+
+<div class="menu-item" data-category="beverage">
+    <div class="menu-item-image">
+        <img src="https://via.placeholder.com/400x300" alt="Fresh Juice">
+    </div>
+    <div class="menu-item-content">
+        <h3>Fresh Juice</h3>
+        <p>Freshly squeezed fruit juices — orange, pineapple, watermelon</p>
+        <button type="button" class="add-package-btn" onclick="addToPackage('Fresh Juice')">
+            <span>+</span> Add to Package
+        </button>
+    </div>
+</div>
+
+<div class="menu-item" data-category="beverage">
+    <div class="menu-item-image">
+        <img src="https://via.placeholder.com/400x300" alt="Soft Drinks">
+    </div>
+    <div class="menu-item-content">
+        <h3>Soft Drinks</h3>
+        <p>Assorted chilled soft drinks and mineral water</p>
+        <button type="button" class="add-package-btn" onclick="addToPackage('Soft Drinks')">
+            <span>+</span> Add to Package
+        </button>
+    </div>
+</div>
+
+</div> <!-- END menu-grid -->
 </section>
 
 <!-- PACKAGES -->
